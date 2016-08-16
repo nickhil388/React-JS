@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <script type="text/jsx">
+
+        var Comp1 = React.createClass({
+            propTypes : {
+                    name : React.PropTypes.string,
+                    isPerson : React.PropTypes.bool
+                
+            },
+
+            getDefaultProps : function(){
+                return {
+                  name : 'Will'
+                }
+            },
+
+            render : function(){
+              return (
+                  <h2> First Component  ,Person Name : <Comp2 name="Paul"/></h2>
+              );
+            }
+        });
+
+
+        var Comp2 = React.createClass({
+            propTypes : {
+                    name : React.PropTypes.string
+                
+            },        
+
+            getInitialState : function(){
+                return  {
+                    value : 1
+                }
+            },
+
+            render : function(){
+              return (
+                  <span>{this.props.name},From State:{this.state.value}</span>
+              );
+            }
+        });
+
+        ReactDOM.render(
+            <Comp1 name="User" isPerson={true}/>,
+            document.getElementById('content')
+        );
+    </script>
+
+  </body>
+</html>
